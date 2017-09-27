@@ -17,15 +17,14 @@ class Flakoo(object):
 		self.database = database
 		client = False
 		if not server or server is None:
-			print "El servidor no esta corriendo Odoo instalelo en esa instancia, para poder usarlo"
 			self.client = False
 			return
 		if not self.regex_server(server):
-			print "El servidor no es correcto"
+			print "Not Valid Server"
 			self.client = False
 			return
 		client = erppeek.Client(server=server)
-		print '______ cliente _____ %s' % client
+		print '______ client _____ %s' % client
 		if not client:
 			return False
 		self.client = client
@@ -46,8 +45,8 @@ class Flakoo(object):
 
 	def run_server(self):
 		if not self.client:
-			print "No conectado"
+			print "No connected"
 			return False
 		else:
-			print "Conectado a (%s) " % (self.client)
+			print "Connected to (%s) " % (self.client)
 			return True
