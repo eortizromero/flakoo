@@ -9,6 +9,9 @@
 """
 import erppeek
 import re
+import logging
+
+logger = logging.getLogger('_________________ Flakoo _________________')
 
 database = ''
 
@@ -23,10 +26,15 @@ class Flakoo(object):
 			print "Not Valid Server"
 			self.client = False
 			return
-		client = erppeek.Client(server=server)
-		print '______ client _____ %s' % client
+		try:
+			client = erppeek.Client(server=server)
+		except ValueError:
+			raise 
+
 		if not client:
-			return False
+			logger.info(client)
+			return
+			# return False
 		self.client = client
 
 	def regex_server(self, server):
