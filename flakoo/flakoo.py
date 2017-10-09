@@ -13,11 +13,8 @@ import logging
 
 logger = logging.getLogger('_________________ Flakoo _________________')
 
-database = ''
-
 class Flakoo(object):
 	def __init__(self, server=None):
-		self.database = database
 		client = False
 		if not server or server is None:
 			self.client = False
@@ -58,3 +55,8 @@ class Flakoo(object):
 		else:
 			print "Connected to (%s) " % (self.client)
 			return True
+
+	def list_database(self):
+		for database in self.client.db.list():
+			self.database = database
+			return database
