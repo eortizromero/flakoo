@@ -6,9 +6,8 @@
 	pip install -e . // Install in dev mode
 
 ## Basic Usage:
-	```python
+	
 	from flakoo import Flakoo
 
 	connect_flakoo = Flakoo(server='http://localhost:8069') # Your Odoo Server Address
 	connect_flakoo.run_server() # if server is connected return True
-	```
